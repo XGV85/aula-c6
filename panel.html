@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel de seguimiento · Aula virtual C6</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body class="panel">
+<div class="logos"><img src="img/franja-logos.png" alt="Secretaría de las Mujeres · Centro LIBRE para las Mujeres · Instituto Hidalguense de las Mujeres" width="1100" height="176"></div>
+<header class="barra">
+  <a class="barra-texto" href="index.html" aria-label="Inicio del aula"><strong>Aula virtual</strong><span>Capacitación al personal operativo · PAIBIM 2026</span></a>
+  <div class="yo" id="yo" hidden><span id="yo-nombre"></span><button type="button" id="yo-cambiar">Cambiar</button></div>
+</header>
+<main class="envoltura panel-main">
+  <section class="panel-cab">
+    <p class="etiqueta-oscura">Instituto Hidalguense de las Mujeres · PAIBIM 2026 · C6</p>
+    <h1>Panel de seguimiento del aula virtual</h1>
+    <p class="nota">Participantes que entraron a la plataforma y cuándo completó cada una sus pasos. Datos tomados al momento de la consulta.</p>
+  </section>
+  <form id="f-clave" class="panel-clave" hidden><label>Clave del panel <input id="clave" autocomplete="off" required></label><button class="btn" type="submit">Entrar</button><p class="error" id="clave-error" hidden>Clave incorrecta.</p></form>
+  <div id="contenido" hidden>
+    <nav class="pestanas"><button type="button" class="pest" data-t="1">Taller 1</button><button type="button" class="pest" data-t="2">Taller 2</button><button type="button" class="pest" data-t="3">Taller 3</button><button type="button" class="pest" data-t="4">Taller 4</button><button type="button" class="pest" data-t="5">Taller 5</button><button type="button" class="pest" data-t="6">Taller 6</button><button type="button" class="pest" data-t="7">Taller 7</button></nav>
+    <section class="panel-taller">
+      <h2 id="p-titulo"></h2>
+      <p class="nota" id="p-generado"></p>
+      <div class="cifras" id="p-cifras"></div>
+      <div class="tabla-envoltura"><table class="tabla-panel"><thead><tr><th>#</th><th>Nombre</th><th>Municipio</th><th>Registro de asistencia</th><th>Evaluación inicial</th><th>Actividad práctica</th><th>Caso</th><th>Evaluación final</th><th>Estado</th></tr></thead><tbody id="p-filas"></tbody></table></div>
+      <p class="panel-acciones"><button type="button" class="btn btn-sec" onclick="window.print()">Imprimir o guardar en PDF</button></p>
+    </section>
+  </div>
+  <p class="comprobando" id="cargando" hidden>Consultando la plataforma…</p>
+</main>
+<footer class="pie">
+  <img class="franja" src="img/franja-logos.png" alt="Secretaría de las Mujeres · Centro LIBRE para las Mujeres · Instituto Hidalguense de las Mujeres" width="550" height="88" loading="lazy">
+  <p class="leyenda">«Este programa es público, ajeno a cualquier partido político. Queda prohibido el uso para fines distintos a los establecidos en el Programa»</p>
+  <p class="autoria">Instituto Hidalguense de las Mujeres · Componente C6, Servicios de Capacitación al Personal Operativo de la Estrategia de Atención Integral · Elaborado por Equalia Consultores, S.C.</p>
+</footer>
+<script src="config.js"></script>
+<script>
+(function () {
+  var A = window.AULA || {}, clave = '', actual = '1';
+  try { clave = sessionStorage.getItem('panelC6') || ''; } catch (e) {}
+  var $ = function (s) { return document.querySelector(s); };
+  function celda(v) { return v ? '<td class="ok">' + v + '</td>' : '<td class="no">—</td>'; }
+  function esc(x) { return String(x).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function cargar(t) {
+    actual = t; $('#cargando').hidden = false;
+    document.querySelectorAll('.pest').forEach(function (b) { b.classList.toggle('activa', b.dataset.t === t); });
+    var cb = 'panelC6_' + Date.now(), sc = document.createElement('script');
+    window[cb] = function (r) {
+      $('#cargando').hidden = true; sc.remove();
+      if (!r || !r.ok) {
+        if (r && r.error === 'clave') { clave = ''; try { sessionStorage.removeItem('panelC6'); } catch (e) {} $('#contenido').hidden = true; $('#f-clave').hidden = false; $('#clave-error').hidden = false; }
+        return;
+      }
+      try { sessionStorage.setItem('panelC6', clave); } catch (e) {}
+      $('#f-clave').hidden = true; $('#contenido').hidden = false;
+      var ps = r.personas, comp = ps.filter(function (x) { return x.registro && x.inicial && x.entrega && x.final; }).length;
+      $('#p-titulo').textContent = r.titulo;
+      $('#p-generado').textContent = 'Consulta del ' + r.generado + ' (hora del centro de México).';
+      $('#p-cifras').innerHTML = '<span><b>' + ps.filter(function (x) { return x.registro; }).length + '</b> registradas</span><span><b>' + ps.filter(function (x) { return x.inicial; }).length + '</b> evaluación inicial</span><span><b>' + ps.filter(function (x) { return x.actividad; }).length + '</b> actividades</span><span><b>' + ps.filter(function (x) { return x.caso; }).length + '</b> casos</span><span><b>' + ps.filter(function (x) { return x.final; }).length + '</b> evaluación final</span><span class="dest"><b>' + comp + '</b> completaron el taller</span>';
+      $('#p-filas').innerHTML = ps.length ? ps.map(function (x, i) {
+        var c = x.registro && x.inicial && x.entrega && x.final;
+        return '<tr' + (x.sinRegistro ? ' class="sin-reg"' : '') + '><td>' + (i + 1) + '</td><td>' + esc(x.nombre) + (x.sinRegistro ? ' <small>(sin registro)</small>' : '') + '</td><td>' + esc(x.municipio) + '</td>' + celda(x.registro) + celda(x.inicial) + celda(x.actividad) + celda(x.caso) + celda(x.final) + '<td>' + (c ? '<span class="est-ok">Completo</span>' : '<span class="est-pend">En curso</span>') + '</td></tr>';
+      }).join('') : '<tr><td colspan="9" class="vacio">Todavía no hay participantes en este taller.</td></tr>';
+    };
+    sc.src = A.api + '?panel=1&taller=' + t + '&clave=' + encodeURIComponent(clave) + '&callback=' + cb;
+    sc.onerror = function () { $('#cargando').hidden = true; };
+    document.body.appendChild(sc);
+  }
+  document.querySelectorAll('.pest').forEach(function (b) { b.addEventListener('click', function () { cargar(b.dataset.t); }); });
+  $('#f-clave').addEventListener('submit', function (ev) { ev.preventDefault(); clave = $('#clave').value.trim(); $('#clave-error').hidden = true; cargar(actual); });
+  if (clave) cargar('1'); else $('#f-clave').hidden = false;
+})();
+</script>
+</body>
+</html>
