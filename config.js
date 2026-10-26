@@ -2052,7 +2052,8 @@ window.AULA = {
  "puestos": {
   "promotoras": "Promotora",
   "psicologas": "Psicóloga",
-  "abogadas": "Abogada"
+  "abogadas": "Abogada",
+  "otro": ""
  },
  "marcas": {
   "nombre": "NOMBREPARTICIPANTE",

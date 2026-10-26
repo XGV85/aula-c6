@@ -72,7 +72,7 @@
         var est = yo ? leer('aulaC6.estado.' + a.dataset.taller + '.' + yo.tel, null) : null;
         var hecho = !!(est && est.completo);
         a.querySelector('.insignia').hidden = !hecho; a.classList.toggle('hecho', hecho);
-        var sig = !hecho && !marcado; if (sig) marcado = true;
+        var sig = puesto !== 'otro' && !hecho && !marcado; if (sig) marcado = true;   // «otro personal»: todos opcionales, sin «siguiente»
         a.classList.toggle('siguiente', sig); a.querySelector('.sig').hidden = !sig;
       });
     }
@@ -155,7 +155,7 @@
       + campo('Categoría', radios('categoria', c.categoria.opciones, f3.categoria))
       + campo('Municipio de procedencia', '<select name="municipio"><option value="">Elija su municipio</option>' + c.municipio.opciones.map(function (o) { return '<option' + (o === f3.municipio ? ' selected' : '') + '>' + esc(o) + '</option>'; }).join('') + '</select>')
       + campo('Comunidad / localidad / colonia', '<input name="comunidad" value="' + esc(f3.comunidad || '') + '">')
-      + campo('Ocupación', '<input name="ocupacion" value="' + esc(ocup) + '">')
+      + campo('Ocupación', '<input name="ocupacion" value="' + esc(ocup) + '"' + (ocup ? '' : ' placeholder="Escriba su puesto"') + '>')
       + campo('Teléfono, opción 2 <small>(opcional)</small>', '<input name="tel2" inputmode="numeric" maxlength="10" value="' + esc(f3.tel2 || '') + '">');
     caja.innerHTML = '<form class="fnativo" novalidate>'
       + '<p class="quien">' + esc(yo.nombre) + ' · ' + esc(yo.tel) + ' · ' + esc(yo.correo) + '</p>'
