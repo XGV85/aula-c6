@@ -148,14 +148,18 @@
     if (estado.registro) return hecho(caja, 'Su asistencia a este taller quedó registrada.');
     if (caja.dataset.listo) return;
     var c = F.registro.campos, f3 = leer('aulaC6.f3', {}), lleno = f3.sexo && f3.rango && f3.edad && f3.categoria && f3.municipio && f3.comunidad;
-    var ocup = f3.ocupacion || (A.puestos || {})[yo.puesto] || '';
+    // ocupación: la elige ella en un desplegable (26-oct-2026); «Otro personal» escribe además su puesto
+    var OCUP = ['Promotora', 'Psicóloga u operadora de la Línea', 'Abogada o Abogada de las Mujeres', 'Otro personal (administrativo, de otra área o externo)'];
+    var opSel = f3.ocupOp || (OCUP.indexOf(f3.ocupacion) >= 0 ? f3.ocupacion : ''), otroTxt = f3.ocupOtro || '';
+    var ocup = f3.ocupacion || '';
     var datosHtml = campo('Sexo', radios('sexo', c.sexo.opciones, f3.sexo))
       + campo('Rango de edad', radios('rango', c.rango.opciones, f3.rango))
       + campo('Edad', '<input name="edad" inputmode="numeric" maxlength="3" value="' + esc(f3.edad || '') + '">')
       + campo('Categoría', radios('categoria', c.categoria.opciones, f3.categoria))
       + campo('Municipio de procedencia', '<select name="municipio"><option value="">Elija su municipio</option>' + c.municipio.opciones.map(function (o) { return '<option' + (o === f3.municipio ? ' selected' : '') + '>' + esc(o) + '</option>'; }).join('') + '</select>')
       + campo('Comunidad / localidad / colonia', '<input name="comunidad" value="' + esc(f3.comunidad || '') + '">')
-      + campo('Ocupación', '<input name="ocupacion" value="' + esc(ocup) + '"' + (ocup ? '' : ' placeholder="Escriba su puesto"') + '>')
+      + campo('Ocupación', '<select name="ocupacion"><option value="">Elija su ocupación</option>' + OCUP.map(function (o) { return '<option' + (o === opSel ? ' selected' : '') + '>' + esc(o) + '</option>'; }).join('') + '</select>'
+              + '<input name="ocupotro" placeholder="Escriba su puesto" value="' + esc(otroTxt) + '"' + (opSel === OCUP[3] ? '' : ' hidden') + ' style="margin-top:8px">')
       + campo('Teléfono, opción 2 <small>(opcional)</small>', '<input name="tel2" inputmode="numeric" maxlength="10" value="' + esc(f3.tel2 || '') + '">');
     caja.innerHTML = '<form class="fnativo" novalidate>'
       + '<p class="quien">' + esc(yo.nombre) + ' · ' + esc(yo.tel) + ' · ' + esc(yo.correo) + '</p>'
@@ -165,11 +169,17 @@
     caja.dataset.listo = '1';
     var form = caja.querySelector('form');
     var ed = form.querySelector('[data-editar]'); if (ed) ed.addEventListener('click', function () { form.querySelector('.datos').hidden = false; ed.parentNode.hidden = true; });
+    form.ocupacion.addEventListener('change', function () { form.ocupotro.hidden = form.ocupacion.value !== OCUP[3]; if (!form.ocupotro.hidden) form.ocupotro.focus(); });
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
+      var op = form.ocupacion.value, otro = form.ocupotro.value.trim();
       var v = { sexo: valorRadio(form, 'sexo'), rango: valorRadio(form, 'rango'), edad: form.edad.value.replace(/\D/g, ''), categoria: valorRadio(form, 'categoria'),
-                municipio: form.municipio.value, comunidad: form.comunidad.value.trim(), ocupacion: form.ocupacion.value.trim(), tel2: form.tel2.value.replace(/\D/g, '') };
-      if (!v.sexo || !v.rango || !v.edad || !v.categoria || !v.municipio || !v.comunidad || !v.ocupacion) { form.querySelector('.datos').hidden = false; return aviso(form, 'Faltan datos: llene todos los campos (el teléfono 2 es opcional).'); }
+                municipio: form.municipio.value, comunidad: form.comunidad.value.trim(),
+                ocupacion: op === OCUP[3] ? (otro ? 'Otro personal: ' + otro : '') : op, ocupOp: op, ocupOtro: otro, tel2: form.tel2.value.replace(/\D/g, '') };
+      if (!v.sexo || !v.rango || !v.edad || !v.categoria || !v.municipio || !v.comunidad || !v.ocupacion) {
+        form.querySelector('.datos').hidden = false;
+        return aviso(form, op === OCUP[3] && !otro ? 'Escriba su puesto debajo de «Otro personal».' : 'Faltan datos: llene todos los campos (el teléfono 2 es opcional).');
+      }
       guardar('aulaC6.f3', v);
       var d = quien(c); d['entry.' + c.taller.entry] = F.registro.taller; d['entry.' + c.sexo.entry] = v.sexo; d['entry.' + c.rango.entry] = v.rango;
       d['entry.' + c.edad.entry] = v.edad; d['entry.' + c.categoria.entry] = v.categoria; d['entry.' + c.municipio.entry] = v.municipio;
