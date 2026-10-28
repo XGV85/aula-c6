@@ -178,7 +178,7 @@
                 ocupacion: op === OCUP[3] ? (otro ? 'Otro personal: ' + otro : '') : op, ocupOp: op, ocupOtro: otro, tel2: form.tel2.value.replace(/\D/g, '') };
       if (!v.sexo || !v.rango || !v.edad || !v.categoria || !v.municipio || !v.comunidad || !v.ocupacion) {
         form.querySelector('.datos').hidden = false;
-        return aviso(form, op === OCUP[3] && !otro ? 'Escriba su puesto debajo de «Otro personal».' : 'Faltan datos: llene todos los campos (el teléfono 2 es opcional).');
+        return aviso(form, op === OCUP[3] && !otro ? 'Escriba su puesto debajo de «Otro personal».' : !op ? 'Elija su ocupación en la lista desplegable.' : 'Faltan datos: llene todos los campos (el teléfono 2 es opcional).');
       }
       guardar('aulaC6.f3', v);
       var d = quien(c); d['entry.' + c.taller.entry] = F.registro.taller; d['entry.' + c.sexo.entry] = v.sexo; d['entry.' + c.rango.entry] = v.rango;
