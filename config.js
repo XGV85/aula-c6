@@ -48,7 +48,7 @@ window.AULA = {
  "zoom": {
   "1": {
    "enlace": "https://us06web.zoom.us/j/81304643599?pwd=lIKkx2btVqMzPsIJHV4FN65Urg0dUS.1",
-   "grabacion": "https://us06web.zoom.us/rec/share/Et7hWac-q0E2Ayn_Rymhkyq_yrxRXPUdfLFIuJIqAWzv1EJO0Ulv_Cd7w1O4tgWv.Nvyk6b_iqYpGjU6A?pwd=DCIr_-mcHmYX58Ws5wAAIAAAAGbRPL6hHBpiBpY0KRH62P6XTjUimqyTTYTI4x1ewY-JP9-kXc6aO6EPTZQfyMYphzAwMDAwNA",
+   "grabacion": "https://us06web.zoom.us/rec/play/4wpEdy5Byg_6v5vYktQKJYezfAiJQrdFTCqmoYdQRxNHdnw64eNE2vWEde83CEhEwDtMLkFtx2SByL4d.NV0CQZI_vKiwot5A?pwd=DLHLH-75f_-u4VIyCgAAIAAAADL44Lx-Qg9vvuT9P5igSMUVVjt3sEHPC0qwB2tYBaPmMMJTxUYRTlq37_jjnW1NljAwMDAwNA",
    "tema": "Taller 1 · Promotoras · Organización comunitaria, redes y liderazgo · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/81304643599",
    "id": "813 0464 3599",
@@ -72,7 +72,7 @@ window.AULA = {
   },
   "4": {
    "enlace": "https://us06web.zoom.us/j/81995533184?pwd=87fw1lUKzYckAZBQjOmy8CIe4VHIvl.1",
-   "grabacion": "https://us06web.zoom.us/rec/share/LLrj23ViKPModZoPy_oPKLFxL4T2E4i2rqub5o4Hj0ogOU6UJoLr0u0iiwQRY5ot.JExY-n86WJOXcZ76?pwd=DHTS2i8nn5sJVusiAAAAIAAAADOd84LmMVnbCM-v4UaX7hPzcVdHPNLLo8g8pR-Qfc8bCa-j1bYsyLW_rG3i8600kDAwMDAwNA",
+   "grabacion": "https://us06web.zoom.us/rec/play/uHaAPqjWxuPQxFB7XoZWYcINxOnCoISVUIFMZVkicPAT0oxpLyY3-edFa_0lZjmbFYisCwMfVzrVzjFY.uFJkiORSpRV0Rjgv?pwd=DIESVF1TUpvaTD_hewAAIAAAAMnLtaMaeFW7kGDiT-H2iohPtr30wyVN0yhXhcKrQsHwjZxT_jC-Yft2j_GxQO9REjAwMDAwNA",
    "tema": "Taller 4 · Psicólogas · Intervención en crisis y evaluación del riesgo · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/81995533184",
    "id": "819 9553 3184",
