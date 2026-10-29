@@ -249,8 +249,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
@@ -569,8 +568,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
@@ -889,8 +887,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
@@ -1209,8 +1206,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
@@ -1534,8 +1530,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
@@ -1854,8 +1849,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
@@ -2174,8 +2168,7 @@ window.AULA = {
        "Zacualtipán de Ángeles",
        "Zapotlán de Juárez",
        "Zempoala",
-       "Zimapán",
-       "Fuera de Hidalgo"
+       "Zimapán"
       ]
      },
      "comunidad": {
