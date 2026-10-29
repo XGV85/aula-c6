@@ -147,7 +147,9 @@
     var caja = $('#nf-registro'); if (!caja || !F || !yo) return;
     if (estado.registro) return hecho(caja, 'Su asistencia a este taller quedó registrada.');
     if (caja.dataset.listo) return;
-    var c = F.registro.campos, f3 = leer('aulaC6.f3', {}), lleno = f3.sexo && f3.rango && f3.edad && f3.categoria && f3.municipio && f3.comunidad;
+    var c = F.registro.campos, f3 = leer('aulaC6.f3', {});
+    if (c.municipio.opciones.indexOf(f3.municipio) < 0) f3.municipio = '';   // guardado «Otro» de antes del 29-oct: que lo elija de la lista de 84
+    var lleno = f3.sexo && f3.rango && f3.edad && f3.categoria && f3.municipio && f3.comunidad;
     // ocupación: la elige ella en un desplegable (26-oct-2026); «Otro personal» escribe además su puesto
     var OCUP = ['Promotora', 'Psicóloga u operadora de la Línea', 'Abogada o Abogada de las Mujeres', 'Otro personal (administrativo, de otra área o externo)'];
     var opSel = f3.ocupOp || (OCUP.indexOf(f3.ocupacion) >= 0 ? f3.ocupacion : ''), otroTxt = f3.ocupOtro || '';
