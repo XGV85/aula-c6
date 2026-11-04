@@ -88,7 +88,7 @@ window.AULA = {
   },
   "6": {
    "enlace": "https://us06web.zoom.us/j/84728733690?pwd=OGhZ0RWnYMHoGWLAs7NoJZZmAbCcCb.1",
-   "grabacion": "",
+   "grabacion": "https://us06web.zoom.us/rec/play/oBKn4OHprEbgSA0pMaqduQ94xiYrRXBNxUPpAnOykFfGcz6jYq7YhL9Bt5imhT6KzqbSUy_eRpA6AbDM.nqQUioZcz7IQ5rkb?pwd=DHIoPR4i9pIT7jBZHAAAIAAAAJtpnxei04GrYUazMlXQg0iC6eOKowdpUt4v0L8N1KOgabg6tzZiLEhOAaMPXONOJTAwMDAwNA",
    "tema": "Taller 6 · Abogadas · Normativa, acceso a la justicia y protección · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/84728733690",
    "id": "847 2873 3690",
