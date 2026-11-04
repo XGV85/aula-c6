@@ -56,7 +56,7 @@ window.AULA = {
   },
   "2": {
    "enlace": "https://us06web.zoom.us/j/81506229271?pwd=r63faIKJMlcsDgZdI3mvrhMYLgDXrg.1",
-   "grabacion": "",
+   "grabacion": "https://us06web.zoom.us/rec/play/kjGdBCf-8MeSethNLG_zSXk7kC9SspafEJI98aomv8qHT6LFXpNjihPomdXcC51HuywtxEr52uEt12W8.9sZ7j4_Xn52Qnvok?pwd=DB1ztT6bJWPbk3BfogAAIAAAAM6VssCU4BqxRt9pHTcuEQC2TnJ1eKOhIJEM9C5Y_ozsyuj0VpqsWGrQYtRl-GVhUDAwMDAwNA",
    "tema": "Taller 2 · Promotoras · Empoderamiento, facilitación y planeación · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/81506229271",
    "id": "815 0622 9271",
