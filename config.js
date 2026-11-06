@@ -80,7 +80,7 @@ window.AULA = {
   },
   "5": {
    "enlace": "https://us06web.zoom.us/j/82722594845?pwd=rsyPZPGpZSrE1ZxcJ0Wk7jvI4WzLpQ.1",
-   "grabacion": "",
+   "grabacion": "https://us06web.zoom.us/rec/play/Qj5rO642RYShT3hXa9DNlCRjZT6ZTSotcrVGLqrsMV_0UuOZdnn7811ge7QPDQgicZduCQuC0b9NMCeN.WLePBomT-J8U25oj?pwd=DIDQJrHP_YaUX18BTQAAIAAAACRoHFJkK6fL3iM0PnXualtA0ea7bkwXoTKbH5--ANam4j7DLb6-LL2RoBqRP-lmRDAwMDAwNA",
    "tema": "Taller 5 · Psicólogas · Violencia de género, autocuidado y trabajo interdisciplinario · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/82722594845",
    "id": "827 2259 4845",
