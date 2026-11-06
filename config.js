@@ -96,7 +96,7 @@ window.AULA = {
   },
   "7": {
    "enlace": "https://us06web.zoom.us/j/82727364868?pwd=JMs2xuR0tggAhCXzh4Q2red6IT0Zga.1",
-   "grabacion": "",
+   "grabacion": "https://us06web.zoom.us/rec/play/JEUzMcXdt7g4FLbHB_Mey-s6rm_Qf0RAnsjS22ehwIQ-z0bRtY4NURBwPs3i6dVPs1EPXDTojjhKqiRx.hoOu05r4YQlwvWgS?pwd=DGRPmEDOFQlegOLLkgAAIAAAACZJXiDxpUlyQfEQI_UsPyhlC5sc9C5Ti5NTjNAFHsh0uKZknWqZEnBoYIjyTEDS7zAwMDAwNA",
    "tema": "Taller 7 · Abogadas · Atención, entrevista jurídica y litigio · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/82727364868",
    "id": "827 2736 4868",
