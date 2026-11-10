@@ -64,7 +64,7 @@ window.AULA = {
   },
   "3": {
    "enlace": "https://us06web.zoom.us/j/81875754331?pwd=DnIjHZZvSNo95Rvom5vdvTObu6tcju.1",
-   "grabacion": "",
+   "grabacion": "https://us06web.zoom.us/rec/play/D5XEPPG4-o9rhbAm8ccpt6-W2no45BjRkLlWV4TdWnfQ-8S432o4KgVELopiwsGxhHaHkPq0tYxzGie_.MemBtjpag2Tpj_Ky?pwd=DLCedVt7jZIjuAH0dgAAIAAAALu8HMyV6ZwWvnO7vkLfZwqc7Ma5gUQrnnVBvQKOvqJkmMKt2WrNdD_UwO64_SrWgjAwMDAwNA",
    "tema": "Taller 3 · Promotoras · Prevención y cambio cultural · Sesión en vivo · IHM PAIBIM 2026 C6",
    "pagina": "https://zoom.us/meeting/81875754331",
    "id": "818 7575 4331",
